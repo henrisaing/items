@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -80,8 +81,18 @@
 
         @yield('content')
     </div>
+    <!-- lightbox popup div -->
+    <div id="light" class="white_content">
+            <div id="lightbox-content"> Opps! Error has occured.</div> 
+            <div class="lb-close">
+                <a href="#" class="lightbox-close">Close</a>
+            </div>
+          </div>
+    <div id="fade" class="black_overlay"></div>
+    <!-- lightbox popup div end -->
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
