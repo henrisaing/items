@@ -25,4 +25,10 @@ Route::group(['prefix' => 'group'], function(){
   Route::post('create', 'GroupController@store');
 
   Route::get('{group}/items', 'ItemController@index');
+  Route::get('{group}/create', 'ItemController@create');
+  Route::post('{group}/create', 'ItemController@store');
+});
+
+Route::group(['prefix' => 'item'], function(){
+  Route::delete('{item}', 'ItemController@destroy');
 });

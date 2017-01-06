@@ -12,7 +12,7 @@ class Item extends Model
   'info',
   'status',
   'type',
-  ]
+  ];
 
   public function group(){
     return $this->belongsTo(Group::class);

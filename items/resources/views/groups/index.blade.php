@@ -5,7 +5,11 @@
 
 <div class="container">
   <div class="panel panel-default">
-    <div class="panel-heading">My Item Groups</div>
+    <div class="panel-heading">
+      <a href="{{url('home')}}">home</a> > 
+      my item groups
+    </div>
+
     <div class="panel-body">
       {!! Form::button('Add Group',[
       'class' => 'form-control btn btn-default lightbox-open',
@@ -13,7 +17,7 @@
 
       <?php if (!empty($groups)): ?>
         <div class="table-responsive">
-          <table class="table">
+          <table class="table table-hover">
             <thead>
               <th>Group Name</th>
               <th>Info</th>
@@ -21,7 +25,7 @@
             <tbody>
         <?php foreach ($groups as $group): ?>
           <tr>
-            <td><a href="{{url('group/'.'$group->id'.'/items')}}">
+            <td><a href="{{url('group/'.$group->id.'/items')}}">
               {{$group->name}}
             </a></td>
             <td>{{$group->info}}</td>
