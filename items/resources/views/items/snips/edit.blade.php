@@ -12,14 +12,35 @@
     'placeholder' => 'description',
   ]) !!}
 <br>
-  {!! Form::text('status', $item->status, [
-    'class' => 'form-control',
-    'placeholder' => 'status',
-  ]) !!}
+
+<!-- changes input type depending on group type -->
+  <?php switch ($group[0]->type):
+  case 'inventory': ?>
+      {!! Form::number('status', $item->status,[
+        'class' => 'form-control'
+      ])!!}
+    <?php break; ?> 
+    <?php case 'event': ?> 
+      {!! Form::text('status', $item->status, [
+        'class' => 'form-control',
+        'placeholder' => 'status'
+      ]) !!}
+    <?php break; ?> 
+    <?php case 'task': ?> 
+      <div id="range-number"></div>
+      <input id="range-input" type="range" min="0" max="100" step="1" name="status" value="{{$item->status}}">
+    <?php break; ?> 
+    <?php default: ?> 
+      {!! Form::text('status', $item->status, [
+        'class' => 'form-control',
+        'placeholder' => 'status'
+      ]) !!}
+    <?php break; ?> 
+  <?php endswitch ?>
+
 <br>
   {!! Form::button('update',[
     'class' => 'btn btn-success',
     'type' => 'submit'
   ])!!}
-  
 {!! Form::close() !!}

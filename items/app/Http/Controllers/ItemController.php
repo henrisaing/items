@@ -39,8 +39,10 @@ class ItemController extends Controller
   }
 
   public function edit(Item $item){
+    $group = $item->group()->get();
     return view('items.snips.edit',[
       'item' => $item,
+      'group' => $group,
     ]);
   }
 

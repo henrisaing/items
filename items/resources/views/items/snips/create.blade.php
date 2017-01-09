@@ -12,10 +12,32 @@
     'placeholder' => 'description'
   ]) !!}
 <br>
-  {!! Form::text('status', null, [
-    'class' => 'form-control',
-    'placeholder' => 'status'
-  ]) !!}
+
+<!-- changes input type depending on group type -->
+  <?php switch ($group->type):
+    case 'inventory': ?>
+      {!! Form::number('status', 0,[
+        'class' => 'form-control'
+      ])!!}
+    <?php break; ?> 
+    <?php case 'event': ?> 
+      {!! Form::text('status', 'datetimepicker placeholder', [
+        'class' => 'form-control',
+        'placeholder' => 'status'
+      ]) !!}
+    <?php break; ?> 
+    <?php case 'task': ?> 
+      <div id="range-number">test</div>
+      <input id="range-input" type="range" min="0" max="100" step="1" name="status">
+    <?php break; ?> 
+    <?php default: ?> 
+      {!! Form::text('status', null, [
+        'class' => 'form-control',
+        'placeholder' => 'status'
+      ]) !!}
+    <?php break; ?> 
+  <?php endswitch ?>
+
 <br>
   {!! Form::button('add item',[
     'class' => 'btn btn-success',
