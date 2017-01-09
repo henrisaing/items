@@ -16,11 +16,13 @@
       'func' => '/group/create']); !!}
 
       <?php if (!empty($groups)): ?>
+        <?php if (count($groups)): ?>
         <div class="table-responsive">
           <table class="table table-hover">
             <thead>
-              <th>Group Name</th>
-              <th>Info</th>
+              <th>group name</th>
+              <th>info</th>
+              <th>status</th>
             </thead>
             <tbody>
         <?php foreach ($groups as $group): ?>
@@ -29,11 +31,17 @@
               {{$group->name}}
             </a></td>
             <td>{{$group->info}}</td>
+            <td>
+              {{$group->type}}
+              <!-- placeholder for group status update -->
+            </td>
           </tr>
         <?php endforeach ?>
           </tbody>
           </table>
         </div>
+          
+        <?php endif ?>
       <?php endif ?>
 
     </div><!-- end div.panel-body -->
