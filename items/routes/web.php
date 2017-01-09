@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
@@ -31,4 +29,6 @@ Route::group(['prefix' => 'group'], function(){
 
 Route::group(['prefix' => 'item'], function(){
   Route::delete('{item}', 'ItemController@destroy');
+  Route::get('{item}/edit', 'ItemController@edit');
+  Route::post('{item}/update', 'ItemController@update');
 });

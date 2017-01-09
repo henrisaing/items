@@ -9,6 +9,12 @@
 
                 <div class="panel-body">
                     You are logged in!
+                    <br>
+                    <a href="{{url('group/index')}}">
+                        {!! Form::button('my groups',[
+                            'class' => 'btn btn-default'
+                        ]) !!}
+                    </a>
                 </div>
             </div>
         </div>

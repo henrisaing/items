@@ -17,7 +17,7 @@
     'placeholder' => 'status'
   ]) !!}
 <br>
-  {!! Form::button('Create Group',[
+  {!! Form::button('add item',[
     'class' => 'btn btn-success',
     'type' => 'submit'
   ])!!}

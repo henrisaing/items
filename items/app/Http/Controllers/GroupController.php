@@ -33,6 +33,7 @@ class GroupController extends Controller
     Auth::user()->groups()->create([
       'name' => $request->name,
       'info' => $request->info,
+      // 'type' => $request->type,
     ]);
     return redirect('group/index');
   }

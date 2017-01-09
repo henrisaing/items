@@ -26,12 +26,36 @@ class ItemController extends Controller
   }
 
   public function store(Request $request, Group $group){
+    $this->validate($request,[
+        'name'  => 'required|max:255',
+      ]);
+
     $group->items()->create([
       'name' => $request->name,
       'info' => $request->info,
       'status' => $request->status,
     ]);
     return redirect('group/'.$group->id.'/items');
+  }
+
+  public function edit(Item $item){
+    return view('items.snips.edit',[
+      'item' => $item,
+    ]);
+  }
+
+  public function update(Request $request, Item $item){
+    $group = $item->group()->get();
+    $this->validate($request,[
+        'name'  => 'required|max:255',
+      ]);
+
+    $item->name = $request->name;
+    $item->info = $request->info;
+    $item->status = $request->status;
+    $item->save();
+
+    return redirect('group/'.$group[0]->id.'/items');
   }
 
   public function destroy(Item $item){

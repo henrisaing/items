@@ -17,26 +17,45 @@
       ]); !!}
 
       <?php if (!empty($items)): ?>
+        <?php if (count($items)): ?>
+          
+        
         <div class="table-responsive">
           <table class="table table table-hover">
             <thead>
+              <th></th>
               <th>Item Name</th>
-              <th>Info</th>
               <th>Status</th>
-              <th>Remove Item</th>
+              <th></th>
+              <th></th>
             </thead>
             <tbody>
 
             <?php foreach ($items as $item): ?>
-              <tr>
-                <td>{{$item->name}}</td>
-                <td>{{$item->info}}</td>
+              <tr class="toggle" item="{{$item->id}}">
+                <td>
+                  [+]
+                  <!-- placeholder -->
+                </td>
+                <td>
+                  {{$item->name}}
+                  <p class="hide toggle-item-{{$item->id}}">
+                    {{$item->info}}
+                  </p>
+                </td>
+                <!-- <td>{{$item->info}}</td> -->
                 <td>{{$item->status}}</td>
+                <td>
+                  {!! Form::button('edit',[
+                    'class' => 'btn btn-info lightbox-open',
+                    'func' => '/item/'.$item->id.'/edit'
+                  ]) !!}
+                </td>
                 <td>
                   {!! Form::open(['url' => 'item/'.$item->id]) !!}
                     {{csrf_field()}}
                     {{method_field('DELETE')}}
-                    {!! Form::button('delete',[
+                    {!! Form::button('<i class="fa fa-trash" aria-hidden="true"></i>',[
                       'type' => 'submit',
                       'class' => 'btn btn-danger'
                     ]) !!}
@@ -48,7 +67,7 @@
           </tbody>
           </table>
         </div>
-
+      <?php endif ?>
       <?php endif ?>
     </div><!-- end div.panel-body -->
   </div><!-- end div.panel-default -->
