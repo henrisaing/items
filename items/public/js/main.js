@@ -7,7 +7,7 @@ $(function(){
 
     //get func attr
     // console.log($(this).attr('func'));
-    $.get($(this).attr('func'), function( data ){
+    $.get($(this).attr('func'), function(data){
       $("#lightbox-content").html(data);
     });
   });
@@ -18,6 +18,12 @@ $(function(){
     $('#light').css('display','none');
   });
 
+  //main ajax calls
+  $('a.ajax-main , button.ajax-main').click(function(){
+    $.get($(this).attr('func'), function(data){
+      $("#main").html(data);
+    });
+  });
 
   //toggles info on tables
   $('tr.toggle').click(function(){

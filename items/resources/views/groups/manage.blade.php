@@ -7,28 +7,27 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <a href="{{url('home')}}">home</a> > 
-      groups >
-      <a href="{{url('group/manage')}}">manage</a>
+      <a href="{{url('group/index')}}">groups</a> > 
+      manage
     </div>
 
     <div class="panel-body">
-      {!! Form::button('create group',[
+  <!--     {!! Form::button('create group',[
       'class' => 'form-control btn btn-success lightbox-open',
-      'func' => '/group/create']); !!}
-      <a href="{{url('group/manage')}}">
+      'func' => '/group/create']); !!} -->
+  <!--     <a href="{{url('group/manage')}}">
         {!! Form::button('manage groups',[
         'class' => 'form-control btn btn-info']); !!}
-      </a>
+      </a> -->
 
       <?php if (!empty($groups)): ?>
         <?php if (count($groups)): ?>
         <div class="table-responsive">
           <table class="table table-hover">
             <thead>
-              <th>group</th>
-              <th>info</th>
-              <th>type</th>
-              <th>status</th>
+              <th>group name</th>
+              <th>edit</th>
+              <th>delete</th>
             </thead>
             <tbody>
         <?php foreach ($groups as $group): ?>
@@ -36,9 +35,21 @@
             <td><a href="{{url('group/'.$group->id.'/items')}}">
               {{$group->name}}
             </a></td>
-            <td>{{$group->info}}</td>
-            <td>{{$group->type}}</td>
-            <td>{{$gs->status($group)}}</td>
+            <td>
+              {!! Form::button('edit group',[
+                'class' => 'btn btn-success lightbox-open',
+                'func' => '/group/'.$group->id]); !!}
+            </td>
+            <td>
+              {!! Form::open(['url' => 'group/'.$group->id]) !!}
+                {{csrf_field()}}
+                {{method_field('DELETE')}}
+                {!! Form::button('<i class="fa fa-trash" aria-hidden="true"></i>',[
+                  'type' => 'submit',
+                  'class' => 'btn btn-danger'
+                ]) !!}
+              {!! Form::close() !!}
+            </td>
           </tr>
         <?php endforeach ?>
           </tbody>

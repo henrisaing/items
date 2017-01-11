@@ -11,7 +11,7 @@
     </div>
 
     <div class="panel-body">
-      {!! Form::button('Create Item',[
+      {!! Form::button('add item',[
       'class' => 'form-control btn btn-default lightbox-open',
       'func' => '/group/'.$group->id.'/create'
       ]); !!}
@@ -23,7 +23,6 @@
         <div class="table-responsive">
           <table class="table table table-hover">
             <thead>
-              <th></th>
               <th>Item Name</th>
               <th>Status</th>
               <th></th>
@@ -33,10 +32,6 @@
 
             <?php foreach ($items as $item): ?>
               <tr class="toggle" item="{{$item->id}}">
-                <td>
-                  [+]
-                  <!-- placeholder -->
-                </td>
                 <td>
                   {{$item->name}}
                   <p class="hide toggle-item-{{$item->id}}">

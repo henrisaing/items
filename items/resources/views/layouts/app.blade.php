@@ -79,7 +79,10 @@
             </div>
         </nav>
 
+        <div id="main">
         @yield('content')
+        </div>
+
     </div>
     <!-- lightbox popup div -->
     <div id="light" class="white_content">

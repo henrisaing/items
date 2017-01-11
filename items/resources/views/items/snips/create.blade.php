@@ -27,7 +27,7 @@
       ]) !!}
     <?php break; ?> 
     <?php case 'task': ?> 
-      <div id="range-number">test</div>
+      <div id="range-number"></div>
       <input id="range-input" type="range" min="0" max="100" step="1" name="status">
     <?php break; ?> 
     <?php default: ?> 
