@@ -31,6 +31,8 @@ $(function(){
     $('p.toggle-item-'+item).slideToggle().removeClass('hide');
   });
 
+  //datepicker initializer
+  $('.datetimepicker').datetimepicker();
   
 /*  $('#range-input').change(function(){
     // $('.range-number').html($(this).val());

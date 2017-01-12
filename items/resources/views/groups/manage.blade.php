@@ -6,7 +6,6 @@
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <a href="{{url('home')}}">home</a> > 
       <a href="{{url('group/index')}}">groups</a> > 
       manage
     </div>
@@ -36,7 +35,7 @@
               {{$group->name}}
             </a></td>
             <td>
-              {!! Form::button('edit group',[
+              {!! Form::button('<i class="fa fa-pencil-square-o" aria-hidden="true"></i>',[
                 'class' => 'btn btn-success lightbox-open',
                 'func' => '/group/'.$group->id]); !!}
             </td>

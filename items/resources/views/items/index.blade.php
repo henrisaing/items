@@ -4,11 +4,22 @@
 
 <div class="container">
   <div class="panel panel-default">
-    <div class="panel-heading"> 
-      <a href="{{url('home')}}">home</a> > 
+    <div class="panel-heading">
       <a href="{{url('/group/index')}}">groups</a> > 
       {{$group->name}} items
     </div>
+
+    <!-- group status header -->
+    <?php if (!empty($items)): ?>
+      <?php if (count($items)): ?>
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            group status:{{$gs->status($group)}}
+          </div>
+        </div>
+      <?php endif ?>
+    <?php endif ?>
+
 
     <div class="panel-body">
       {!! Form::button('add item',[

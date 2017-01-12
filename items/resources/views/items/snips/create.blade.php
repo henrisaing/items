@@ -21,9 +21,9 @@
       ])!!}
     <?php break; ?> 
     <?php case 'event': ?> 
-      {!! Form::text('status', 'datetimepicker placeholder', [
-        'class' => 'form-control',
-        'placeholder' => 'status'
+      {!! Form::text('status', '', [
+        'class' => 'form-control datetimepicker',
+        'placeholder' => 'date'
       ]) !!}
     <?php break; ?> 
     <?php case 'task': ?> 
@@ -44,3 +44,9 @@
     'type' => 'submit'
   ])!!}
 {!! Form::close() !!}
+
+
+<script type="text/javascript">
+  //datepicker initializer
+  $('.datetimepicker').datetimepicker();
+</script>

@@ -6,16 +6,30 @@ use Illuminate\Http\Request;
 use App\Group;
 use Auth;
 use App\Item;
+use App\GroupSummary;
 
 class ItemController extends Controller
-{
-    //
+{    
+  /**
+   * Create a new controller instance.
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+
   public function index(Group $group){
     //AUTH CHECK NEEDED
     $items = $group->items()->get();
+
+    $gs = new GroupSummary;
+
     return view('items.index',[
       'items'   => $items,
       'group'   => $group,
+      'gs'      => $gs,
     ]);
   }
 

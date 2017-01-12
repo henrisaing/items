@@ -6,7 +6,6 @@
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <a href="{{url('home')}}">home</a> > 
       groups >
       <a href="{{url('group/manage')}}">manage</a>
     </div>

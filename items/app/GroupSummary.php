@@ -10,11 +10,11 @@ use Auth;
 class GroupSummary extends Model
 {
     //
-
+  // test remove later
   public function returnOne(){
     return 1;
   }
-
+  // test, remove later
   public function groupName(Group $group){
     return $group->name;
   }

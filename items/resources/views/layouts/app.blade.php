@@ -20,6 +20,7 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+
 </head>
 <body>
     <div id="app">
@@ -84,6 +85,7 @@
         </div>
 
     </div>
+
     <!-- lightbox popup div -->
     <div id="light" class="white_content">
             <div id="lightbox-content"> Opps! Error has occured.</div> 
@@ -98,4 +100,8 @@
     <script src="/js/app.js"></script>
     <script src="/js/main.js"></script>
 </body>
+    <!-- datetimepicker -->
+    <link rel="stylesheet" type="text/css" href="/datetimepicker/jquery.datetimepicker.css"/ >
+    <script src="/datetimepicker/jquery.js"></script>
+    <script src="/datetimepicker/build/jquery.datetimepicker.full.min.js"></script>
 </html>
