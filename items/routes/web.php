@@ -16,7 +16,7 @@ Route::get('/', 'GroupController@index');
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index');
+Route::get('/home', 'GroupController@index');
 
 Route::group(['prefix' => 'group'], function(){
   Route::get('index', 'GroupController@index');
