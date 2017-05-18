@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Group;
 use App\GroupSummary;
+use App\AuthCheck;
 
 class GroupController extends Controller
 {
@@ -61,26 +62,42 @@ class GroupController extends Controller
   }
 
   public function edit(Group $group){
-
-    return view('groups.snips.edit',[
+    if(AuthCheck::ownsGroup($group)):
+      $view = view('groups.snips.edit',[
       'group' => $group,
     ]);
-    // return $group;
+    else:
+      $view = view('errors.permissions');
+    endif;
+    
+    return $view;
   }
 
   public function update(Request $request, Group $group){
-    $this->validate($request,[
+    if(AuthCheck::ownsGroup($group)):
+      $this->validate($request,[
         'name'  => 'required|max:255',
       ]);
-    $group->name = $request->name;
-    $group->info = $request->info;
-    $group->save();
+      $group->name = $request->name;
+      $group->info = $request->info;
+      $group->save();
 
-    return redirect('group/manage');
+      $view = redirect('group/manage');
+    else:
+      $view = view('errors.permissions');
+    endif;
+    
+    return $view;
   }
 
   public function destroy(Group $group){
-    $group->delete();
-    return redirect('group/manage');
+    if(AuthCheck::ownsGroup($group)):
+      $group->delete();
+      $view = redirect('group/manage');
+    else:
+      $view = view('errors.permissions');
+    endif;
+    
+    return $view;
   }
 }

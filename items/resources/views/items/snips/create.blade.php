@@ -40,7 +40,7 @@
 
 <br>
   {!! Form::button('add item',[
-    'class' => 'btn btn-success',
+    'class' => 'btn btn-success lb-close',
     'type' => 'submit'
   ])!!}
 {!! Form::close() !!}

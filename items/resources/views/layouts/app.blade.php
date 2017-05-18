@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/outline.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/font-awesome/css/font-awesome.min.css">
     <!-- Scripts -->
     <script>
@@ -90,7 +91,7 @@
     <div id="light" class="white_content">
             <div id="lightbox-content"> Opps! Error has occured.</div> 
             <div class="lb-close">
-                <a href="#" class="lightbox-close">Close</a>
+                <button type="button" class="lightbox-close btn btn-danger">close</button>
             </div>
           </div>
     <div id="fade" class="black_overlay"></div>

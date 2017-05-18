@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Group;
 use App\Item;
 use Auth;
+use Carbon\Carbon;
 
 class GroupSummary extends Model
 {
@@ -33,7 +34,7 @@ class GroupSummary extends Model
             $total += $item->status;
             $counter++;
           endforeach;
-          $status = ($total / $counter).'%';
+          $status = round(($total / $counter), 2).'%';
         endif;
       break;
       
@@ -55,7 +56,14 @@ class GroupSummary extends Model
 
       //gets  closest event
       case 'event':
-        $status = 'ev placeholder';
+        if (count($group->items()->get())):
+          // foreach ($group->items()->get() as $item):
+          //   $total += $item->status;
+          //   $counter++;
+          // endforeach;
+          $item = $group->items()->orderBy('status', 'asc')->where('status', '>', Carbon::now())->first();
+          $status = $item->name;
+        endif;
       break;
 
       //gets last item added to group

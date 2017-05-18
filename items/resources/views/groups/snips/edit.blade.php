@@ -19,7 +19,7 @@
   ]) !!}
 <br>
   {!! Form::button('save changes',[
-    'class' => 'btn btn-success',
+    'class' => 'btn btn-success lb-close',
     'type' => 'submit'
   ])!!}
 {!! Form::close() !!}
